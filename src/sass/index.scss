@@ -16,6 +16,20 @@ body {
   box-sizing: border-box;
   padding: 0 15px;
   margin: 0 auto;
+  &__title {
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  &__main-content {
+    display: flex;
+  }
+  &__decor {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
 }
 
 a,
@@ -23,8 +37,12 @@ button {
   cursor: pointer;
 }
 
-.container__main-content {
-  display: flex;
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /*header*/
@@ -49,18 +67,19 @@ button {
 .nav {
   &__item {
     display: flex;
-    margin-bottom: 5px;
   }
 
   &__link {
     font-size: 13px;
     color: #285473;
     width: 100%;
-    padding: 5px 0 5px 10px;
+    border-radius: 2px;
+    padding: 7px 0 7px 10px;
+    &_active {
+      background-color: #d8e1ef;
+    }
     &:hover {
       background-color: #e1e5eb;
-      text-decoration: none;
-      border-radius: 2px;
     }
   }
 }
@@ -68,15 +87,13 @@ button {
 /*main-content*/
 .main-content {
   flex-grow: 1;
+  max-width: 540px;
 }
 
 .preview-block {
   height: 150px;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
   overflow: hidden;
-  margin-bottom: 15px;
+  padding: 0;
 }
 
 .preview-block__image {
@@ -84,3 +101,53 @@ button {
   height: 100%;
   object-fit: cover;
 }
+
+/*posts*/
+.create-post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 15px;
+  &__area {
+    border: none;
+    border-bottom: 1px solid #e7e8ec;
+    padding: 5px 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &__btn {
+    font-size: 13px;
+    background-color: #5181b8;
+    color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 7px 16px 8px;
+  }
+}
+
+/*dialogs*/
+.dialogs {
+  &__container {
+    display: flex;
+  }
+  &__items {
+    width: 115px;
+    border-right: 1px solid #d8e1ef;
+    box-sizing: border-box;
+    padding-right: 15px;
+  }
+  &__messages {
+    padding-left: 15px;
+  }
+  &__person {
+    font-size: 13px;
+    font-weight: 700;
+    color: #42648b;
+    display: flex;
+    width: 100%;
+    border-radius: 2px;
+    padding: 7px 0;
+  }
+}
+
+/*profile-info-block*/
