@@ -8,7 +8,10 @@ const Profile = (props) => {
       <img className="preview-block__image" src="https://www.fonedog.com/images/photo-compress/image-compressor-image.jpg" alt='' />
     </div>
     <ProfileInfo />
-    <PersonalPosts posts={props.state.postsData} />
+    <PersonalPosts 
+      posts={props.profilePage.postsData}
+      newPostText={props.profilePage.newPostText}
+      dispatch={props.dispatch} />
   </>;
 }
 
