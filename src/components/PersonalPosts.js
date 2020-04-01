@@ -1,18 +1,16 @@
 import React from 'react';
 import Post from './Post';
-import { addPostActionCreator, updateNewPostActionCreator } from '../redux/state';
 
 const PersonalPosts = (props) => {
-
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator());
+  let onAddPost = () => {
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch(updateNewPostActionCreator(text));
+    props.updateNewPostText(text);
   };
 
   return <div className="personal-posts container__decor">
@@ -21,14 +19,14 @@ const PersonalPosts = (props) => {
         <input 
           ref={newPostElement}
           onChange={onPostChange}
-          value={props.newPostText}
+          value={props.profilePage.newPostText}
           type="text" 
           className="create-post__area" 
           placeholder="What's new?" />
-        <button onClick={addPost} className="create-post__btn">Add</button>
+        <button onClick={onAddPost} className="create-post__btn">Add</button>
       </div>
       <div className="personal-posts__container">
-        {props.posts.map(item =>
+        {props.profilePage.postsData.map(item =>
           <Post 
             message={item.message} 
             likesCount={item.likes}

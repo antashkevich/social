@@ -4,21 +4,18 @@ import routes from './routes';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Profile from './components/Profile';
-import Dialogs from './components/Dialogs';
+import DialogsContainer from './containers/DialogsContainer';
 
-function App(props) {
+function App() {
   return (
     <div className="app">
       <Header />
       <div className="container container__main-content">
         <Sidebar />
         <main className="main-content">
-          <Route exact path={routes.LANDING} render={() => 
-            <Profile 
-              profilePage={props.state.profilePage} 
-              dispatch={props.dispatch} />
+          <Route exact path={routes.LANDING} render={() => <Profile />
           } />
-          <Route path={routes.DIALOGS} render={() => <Dialogs state={props.state.dialogsPage} />} />
+          <Route path={routes.DIALOGS} render={() => <DialogsContainer />} />
         </main>
       </div>
     </div>
