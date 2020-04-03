@@ -23,7 +23,7 @@ const PersonalPosts = (props) => {
           type="text" 
           className="create-post__area" 
           placeholder="What's new?" />
-        <button onClick={onAddPost} className="create-post__btn">Add</button>
+        <button onClick={onAddPost} className="button-action">Add</button>
       </div>
       <div className="personal-posts__container">
         {props.profilePage.postsData.map(item =>

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Profile from './components/Profile';
 import DialogsContainer from './containers/DialogsContainer';
+import UsersContainer from './containers/UsersContainer';
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
       <div className="container container__main-content">
         <Sidebar />
         <main className="main-content">
-          <Route exact path={routes.LANDING} render={() => <Profile />
-          } />
+          <Route exact path={routes.LANDING} render={() => <Profile />} />
           <Route path={routes.DIALOGS} render={() => <DialogsContainer />} />
+          <Route path={routes.USERS} render={() => <UsersContainer />} />
         </main>
       </div>
     </div>

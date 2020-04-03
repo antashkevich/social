@@ -39,6 +39,20 @@ button {
 
 button {
   border: none;
+  background-color: transparent;
+}
+
+.button-action {
+    font-size: 13px;
+    color: #fff;
+    text-transform: capitalize;
+    background-color: #5181b8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 7px 16px;
+    &.danger {
+      background-color: #dc3545;
+    }
 }
 
 a {
@@ -115,14 +129,6 @@ a {
     width: 100%;
     margin-bottom: 10px;
   }
-  &__btn {
-    font-size: 13px;
-    background-color: #5181b8;
-    color: #fff;
-    border-radius: 4px;
-    box-sizing: border-box;
-    padding: 7px 16px 8px;
-  }
 }
 
 /*dialogs*/
@@ -151,4 +157,62 @@ a {
   }
 }
 
-/*profile-info-block*/
+/*users-block*/
+.user-block {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e7e8ec;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  &__info-container {
+    display: flex;
+    align-items: center;
+  }
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    font-size: 13px;
+  }
+  &__name {
+    font-weight: 700;
+    color: #42648b;
+    margin-bottom: 10px;
+  }
+  &__status {
+    color: #656565;
+    margin-bottom: 10px;
+  }
+  &__nickname {
+    color: #42648b;
+  }
+  .button-action {
+    width: 84px;
+  }
+}
+
+/*pagination*/
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  &__active {
+    a, button {
+      font-weight: bold;
+      border-bottom: 1px solid #285473;
+    }
+  }
+  a, button {
+    font-size: 13px;
+    color: #285473;
+    padding: 0 6px;
+  }
+}

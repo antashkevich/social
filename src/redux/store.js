@@ -69,6 +69,7 @@ let store = {
             newMessageBody: '',
         },
         sidebar: {},
+        usersPage: {},
     },
     _callSubscriber() {
         console.log('State is changed');

@@ -41,7 +41,7 @@ const Dialogs = (props) => {
         type="text" 
         className="create-post__area" 
         placeholder="New message" />
-      <button onClick={onSendMessage} className="create-post__btn">Add</button>
+      <button onClick={onSendMessage} className="button-action">Add</button>
     </div>
   </div>;
 }
