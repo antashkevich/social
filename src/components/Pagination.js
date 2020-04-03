@@ -4,35 +4,28 @@ import ReactPaginate from 'react-paginate';
 const Pagination = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize);
 
-  let pages = [];
-
-  for(let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
   return <div>
-    {/* <ul className="pagination">
-      {
-        pages.map(page =>
-          <li className={props.currentPage === page  ? "pagination__active" : ""} key={page}>
-            <button className="pagination__link" onClick={() => props.onPageChanged(page)}>{page}</button>
-          </li>
-        )
-      }
-    </ul> */}
     <ReactPaginate
       previousLabel={'previous'}
       nextLabel={'next'}
       breakLabel={'...'}
-      breakClassName={'break-me'}
+      breakClassName={'pagination__break'}
+      breakLinkClassName={'pagination__break-linl'}
       pageCount={pagesCount}
       marginPagesDisplayed={2}
-      pageRangeDisplayed={5}
-      // onPageChange={(page) => props.onPageChanged(page)}
+      pageRangeDisplayed={3}
       onPageChange={props.onPageChanged}
       containerClassName={'pagination'}
       subContainerClassName={'pages pagination'}
-      activeClassName={'pagination__active'}
+      pageLinkClassName={'pagination__link'}
+      activeLinkClassName={'pagination__link_active'}
+      pageClassName={'pagination__item'}
+      activeClassName={'pagination__item_active'}
+      previousClassName={'pagination__prev'}
+      nextClassName={'pagination__next'}
+      previousLinkClassName={'pagination__prev-link'}
+      nextLinkClassName={'pagination__next-link'}
+      disabledClassName={'pagination__link_disabled'}
     />
   </div>
 };

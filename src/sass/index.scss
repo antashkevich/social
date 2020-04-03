@@ -204,15 +204,21 @@ a {
 .pagination {
   display: flex;
   justify-content: flex-end;
-  &__active {
-    a, button {
+  &__link,
+  &__next-link,
+  &__prev-link {
+    font-size: 13px;
+    color: #285473;
+    padding: 0 6px;
+    &_active {
       font-weight: bold;
       border-bottom: 1px solid #285473;
     }
   }
-  a, button {
-    font-size: 13px;
-    color: #285473;
-    padding: 0 6px;
+  &__link_disabled {
+    a {
+      color: rgba(40, 84, 115, 0.5);
+      pointer-events: none;  
+    }
   }
 }

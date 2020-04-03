@@ -15,14 +15,6 @@ class Users extends React.Component {
         return photos.large || photos.small || "/assets/media/avatar.png";
     };
 
-    onPageChanged(pageNum) {
-        this.props.setCurrentPage(pageNum);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`)
-        .then(response => {
-            this.props.setUsers(response.data.items);
-        });
-    };
-
     handlePageClick = data => {
         let selected = data.selected + 1;    
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${selected}&count=${this.props.pageSize}`)
@@ -62,7 +54,6 @@ class Users extends React.Component {
                 currentPage={this.props.currentPage}
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
-                // onPageChanged={(pageNum) => this.onPageChanged(pageNum)} 
                 onPageChanged={this.handlePageClick}
             />
         </div>
