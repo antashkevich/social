@@ -1,4 +1,4 @@
-import PersonalPosts from '../components/PersonalPosts';
+import PersonalPosts from '../components/ProfilePage/PersonalPosts';
 import { addPostActionCreator, updateNewPostActionCreator } from '../redux/profileReducer';
 import { connect } from 'react-redux';
 

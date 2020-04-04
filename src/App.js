@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import routes from './routes';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import Profile from './components/Profile';
+import Profile from './components/ProfilePage/Profile';
 import DialogsContainer from './containers/DialogsContainer';
 import UsersContainer from './containers/UsersContainer';
 
