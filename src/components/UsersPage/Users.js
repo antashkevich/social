@@ -37,9 +37,9 @@ let Users = (props) => {
             </div>)
         }
         <Pagination
+            currentPage={props.currentPage}
             totalUsersCount={props.totalUsersCount}
             pageSize={props.pageSize}
-            currentPage={props.currentPage}
             onPageChanged={handlePageClick}
         />
     </div>;

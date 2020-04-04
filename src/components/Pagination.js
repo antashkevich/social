@@ -3,14 +3,14 @@ import ReactPaginate from 'react-paginate';
 
 const Pagination = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize);
-
+  
   return <div>
     <ReactPaginate
       previousLabel={'previous'}
       nextLabel={'next'}
       breakLabel={'...'}
       breakClassName={'pagination__break'}
-      breakLinkClassName={'pagination__break-linl'}
+      breakLinkClassName={'pagination__break-link'}
       pageCount={pagesCount}
       marginPagesDisplayed={2}
       pageRangeDisplayed={3}
