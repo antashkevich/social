@@ -5,40 +5,6 @@ import * as axios from 'axios';
 import Users from '../components/UsersPage/Users';
 import Spinner from '../components/Spinner';
 
-let mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-    }
-}
-  
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//       follow: (userId) => {
-//         dispatch(follow(userId));
-//       },
-//       unfollow: (userId) => {
-//         dispatch(unfollow(userId));
-//       },
-//       setUsers: (users) => {
-//         dispatch(setUsers(users));
-//       },
-//       setCurrentPage: (currentPage) => {
-//         dispatch(setCurrentPage(currentPage));
-//       },
-//       setTotalUsersCount: (totalUsersCount) => {
-//         dispatch(setTotalUsersCount(totalUsersCount));
-//       },
-//       toggleIsFetching: (isFetching) => {
-//         dispatch(toggleIsFetching(isFetching));
-//       },
-
-//     }
-// }
-
 class UserContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
@@ -51,12 +17,12 @@ class UserContainer extends React.Component {
     };
 
     handlePageClick = (selected) => {
-        this.props.toggleIsFetching(true);
+        // this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${selected}&count=${this.props.pageSize}`)
         .then(response => {
             this.props.setCurrentPage(selected);
             this.props.setUsers(response.data.items);
-            this.props.toggleIsFetching(false);            
+            // this.props.toggleIsFetching(false);            
         });
     };
 
@@ -79,6 +45,16 @@ class UserContainer extends React.Component {
             }
         </>
     };
+}
+
+let mapStateToProps = (state) => {
+    return {
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching,
+    }
 }
 
 const UsersContainer = connect(mapStateToProps,

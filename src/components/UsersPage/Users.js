@@ -1,5 +1,6 @@
 import React from 'react';
 import Pagination from '../Pagination';
+import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
     let checkAvatar = (photos) =>
@@ -16,7 +17,9 @@ let Users = (props) => {
             props.users.map( user => <div className="user-block" key={user.id}>
                 <div className="user-block__info-container">
                     <div className="user-block__avatar">
-                        <img src={checkAvatar(user.photos)} alt="avatar user" />
+                        <NavLink to={"/profile/" + user.id}>
+                            <img src={checkAvatar(user.photos)} alt="avatar user" />
+                        </NavLink>
                     </div>
                     <div className="user-block__info">
                         <p className="user-block__name">{user.name}</p>
