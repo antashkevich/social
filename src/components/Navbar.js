@@ -5,7 +5,7 @@ const Navbar = () => {
   return <nav className="nav">
     <ul className="nav__list">
       <li className="nav__item">
-        <NavLink className="nav__link" activeClassName={"nav__link_active"} exact to="/">Profile</NavLink>
+        <NavLink className="nav__link" activeClassName={"nav__link_active"} to="/profile">Profile</NavLink>
       </li>
       <li className="nav__item">
         <NavLink className="nav__link" activeClassName={"nav__link_active"} to="/dialogs">Messages</NavLink>

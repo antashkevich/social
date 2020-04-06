@@ -3,26 +3,32 @@ import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleI
 import { connect } from 'react-redux';
 import * as axios from 'axios';
 import Users from '../components/UsersPage/Users';
+import Pagination from '../components/Pagination';
 import Spinner from '../components/Spinner';
 
 class UserContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        })
             .then(response => {
-                this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount);
+                this.props.toggleIsFetching(false);
             });
     };
 
-    handlePageClick = (selected) => {
-        // this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${selected}&count=${this.props.pageSize}`)
+    handlePageClick = data => {
+        let selected = data.selected + 1;
+        this.props.toggleIsFetching(true);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${selected}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        })
         .then(response => {
             this.props.setCurrentPage(selected);
             this.props.setUsers(response.data.items);
-            // this.props.toggleIsFetching(false);            
+            this.props.toggleIsFetching(false);
         });
     };
 
@@ -40,9 +46,14 @@ class UserContainer extends React.Component {
                     totalUsersCount={this.props.totalUsersCount}
                     currentPage={this.props.currentPage}
                     pageSize={this.props.pageSize}
-                    handlePageClick={this.handlePageClick}
                 />
             }
+            <Pagination
+                currentPage={this.props.currentPage}
+                totalUsersCount={this.props.totalUsersCount}
+                pageSize={this.props.pageSize}
+                onPageChanged={this.handlePageClick}
+            />
         </>
     };
 }

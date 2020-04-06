@@ -78,6 +78,15 @@ a {
   &__logo {
     max-width: 24px;
   }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a {
+    font-weight: 700;
+    color: #fff;
+  }
 }
 
 /*sidebar*/

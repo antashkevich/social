@@ -1,5 +1,5 @@
 export default {
-    LANDING: '/',
+    LANDING: '/profile/:userId',
     DIALOGS: '/dialogs',
     USERS: '/users',
   };
