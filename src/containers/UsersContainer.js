@@ -1,10 +1,11 @@
 import React from 'react';
 import { follow, unfollow, setCurrentPage, getUsers } from '../redux/usersReducer';
 import { connect } from 'react-redux';
-
 import Users from '../components/UsersPage/Users';
 import Pagination from '../components/Pagination';
 import Spinner from '../components/Spinner';
+import { compose } from 'redux';
+import { withAuthRedirect } from '../hoc/withAuthRedirect';
 
 class UserContainer extends React.Component {
     componentDidMount() {
@@ -18,8 +19,7 @@ class UserContainer extends React.Component {
 
     render () {
         return <>
-            {
-                this.props.isFetching
+            {this.props.isFetching
                 ?
                 <Spinner />
                 :
@@ -54,13 +54,12 @@ let mapStateToProps = (state) => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps,
-    {
+export default compose(
+    connect(mapStateToProps,{
     follow,
     unfollow,
     setCurrentPage,
     getUsers,
-  }
+  }),
+  withAuthRedirect,
   )(UserContainer);
-
-export default UsersContainer;

@@ -6,6 +6,7 @@ import HeaderContainer from './containers/HeaderContainer';
 import DialogsContainer from './containers/DialogsContainer';
 import UsersContainer from './containers/UsersContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={routes.LANDING} render={() => <ProfileContainer />} />
           <Route path={routes.DIALOGS} render={() => <DialogsContainer />} />
           <Route path={routes.USERS} render={() => <UsersContainer />} />
+          <Route path={routes.LOGIN} render={() => <Login />} />
         </main>
       </div>
     </div>

@@ -52,19 +52,19 @@ button {
 }
 
 .button-action {
-    font-size: 13px;
-    color: #fff;
-    text-transform: capitalize;
-    background-color: #5181b8;
-    border-radius: 4px;
-    box-sizing: border-box;
-    padding: 7px 16px;
-    &.danger {
-      background-color: #dc3545;
-    }
-    &:disabled {
-      opacity: .6;
-    }
+  font-size: 13px;
+  color: #fff;
+  text-transform: capitalize;
+  background-color: #5181b8;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 7px 16px;
+  &.danger {
+    background-color: #dc3545;
+  }
+  &:disabled {
+    opacity: .6;
+  }
 }
 
 a {
