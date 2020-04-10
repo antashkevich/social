@@ -1,5 +1,6 @@
 import React from 'react';
 import Spinner from '../Spinner';
+import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = (props) => {
     if (!props.profile) return <Spinner />
@@ -11,9 +12,10 @@ const ProfileInfo = (props) => {
 
     return (
         <div className="profile-info-block container__decor">
-            <p>ava</p>
             <img src={checkAvatar(photosList)} alt="profile avatar" />
-            <p>description</p>
+            <ProfileStatus 
+                status={props.status}
+                updateStatus={props.updateStatus} />
         </div>
     );
 };

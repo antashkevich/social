@@ -7,7 +7,10 @@ const Profile = (props) => {
     <div className="preview-block container__decor">
       <img className="preview-block__image" src="/assets/media/preview-image.jpg" alt='' />
     </div>
-    <ProfileInfo profile={props.profile} />
+    <ProfileInfo 
+      profile={props.profile}
+      status={props.status}
+      updateStatus={props.updateStatus} />
     <PersonalPostsContainer />
   </>;
 }

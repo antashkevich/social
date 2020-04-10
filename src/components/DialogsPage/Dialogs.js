@@ -1,17 +1,12 @@
 import React from 'react';
 import DialogItem from './DialogItem';
 import DialogMessage from './DialogMessage';
+import { Field, reduxForm } from 'redux-form'
 
 const Dialogs = (props) => {
-  let newMessageElement = React.createRef();
 
-  let onSendMessage = () => {
-    props.sendMessage();
-  };
-
-  let onNewMessageChange = () => {
-    let text = newMessageElement.current.value;
-    props.updateNewMessageBody(text)
+  let addNewMessage = (values) => {
+    props.sendMessage(values.NewMessageBody);
   };
 
   return <div className="dialogs container__decor">
@@ -33,17 +28,27 @@ const Dialogs = (props) => {
         )}
       </div>
     </div>
-    <div className="create-post">
-      <input 
-        ref={newMessageElement}
-        onChange={onNewMessageChange}
-        value={props.dialogsPage.newMessageBody}
-        type="text" 
-        className="create-post__area" 
-        placeholder="New message" />
-      <button onClick={onSendMessage} className="button-action">Add</button>
-    </div>
+    <AddMessageReduxForm onSubmit={addNewMessage} />
   </div>;
 }
+
+const AddMessageForm = (props) => {
+  // let newMessageElement = React.createRef();
+
+  return <form onSubmit={props.handleSubmit} className="create-post">
+    <Field 
+      type="text"
+      component="input"
+      name="NewMessageBody"
+      // ref={newMessageElement}
+      className="create-post__area" 
+      placeholder="New message" />
+    <button className="button-action">Add</button>
+  </form>
+};
+
+const AddMessageReduxForm = reduxForm({
+  form: 'dialogAddMessageForm'
+})(AddMessageForm);
 
 export default Dialogs;
