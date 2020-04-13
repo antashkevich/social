@@ -13,6 +13,7 @@ const authReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case SET_USER_DATA:
+            debugger
             return {
                 ...state,
                 ...action.data,
@@ -32,6 +33,7 @@ export const getAuthUserData = () => {
             .then(response => {
                 if(response.data.resultCode === 0) {
                     let {id, email, login} = response.data.data;
+                    debugger
                     dispatch(setAuthUserData(id, email, login));
                 }
             });

@@ -35,7 +35,7 @@ const Dialogs = (props) => {
 const AddMessageForm = (props) => {
   // let newMessageElement = React.createRef();
 
-  return <form onSubmit={props.handleSubmit} className="create-post">
+  return <form onSubmit={props.handleSubmit} className="create-post" autoComplete="off">
     <Field 
       type="text"
       component="input"

@@ -3,7 +3,7 @@ import { follow, unfollow, setCurrentPage, getUsers } from '../redux/usersReduce
 import { connect } from 'react-redux';
 import Users from '../components/UsersPage/Users';
 import Pagination from '../components/Pagination';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/common/Preloader/Spinner';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../hoc/withAuthRedirect';
 
@@ -62,5 +62,5 @@ export default compose(
     setCurrentPage,
     getUsers,
   }),
-  withAuthRedirect,
+  withAuthRedirect
   )(UserContainer);
