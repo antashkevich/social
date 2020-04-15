@@ -3,4 +3,5 @@ export default {
     DIALOGS: '/dialogs',
     USERS: '/users',
     LOGIN: '/login',
+    PHOTOS: '/photos',
   };

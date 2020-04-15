@@ -83,6 +83,7 @@ a {
   margin-bottom: 15px;
   &__logo {
     max-width: 24px;
+    margin-left: 10px;
   }
   .container {
     display: flex;
@@ -110,6 +111,8 @@ a {
   &__link {
     font-size: 13px;
     color: #285473;
+    display: flex;
+    align-items: center;
     width: 100%;
     border-radius: 2px;
     padding: 7px 0 7px 10px;
@@ -118,6 +121,9 @@ a {
     }
     &:hover {
       background-color: #e1e5eb;
+    }
+    svg {
+      margin-right: 10px;
     }
   }
 }
@@ -146,16 +152,12 @@ a {
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 15px;
-  &__container {
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-  }
   &__area {
     border: none;
     border-bottom: 1px solid #e7e8ec;
     padding: 5px 0;
     width: 100%;
+    margin-bottom: 15px;
   }
 }
 
@@ -256,6 +258,11 @@ a {
   display: flex;
   flex-direction: column;
   max-width: 270px;
+  &__input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+  }
   &__input {
     font-size: 14px;
     color: #000;
@@ -266,7 +273,6 @@ a {
     background-color: #fff;
     box-sizing: border-box;
     padding: 6px 12px 8px;
-    margin-bottom: 15px;
     &::-webkit-input-placeholder {
       color: #828282;
       transition: color 0.2s ease;
@@ -349,6 +355,18 @@ a {
       transform: translateY(-50%);
       border-radius: 3px;
       border: 1px solid #d3d9de;
+    }
+  }
+  &__pass-icon {
+    color: #5181b8;
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    &:hover {
+      color: #5b88bd;
     }
   }
 }

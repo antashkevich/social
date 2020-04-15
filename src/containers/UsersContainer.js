@@ -60,7 +60,7 @@ export default compose(
     follow,
     unfollow,
     setCurrentPage,
-    getUsers,
+    getUsers
   }),
   withAuthRedirect
   )(UserContainer);

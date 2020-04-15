@@ -1,12 +1,10 @@
 import React from 'react';
-import Post from '../Post';
+import Post from './Post';
 import { Field, reduxForm } from 'redux-form'
 import { required, maxLengthCreator } from '../../utils/validators/validators';
-import { renderField } from '../common/FormsControls/FormsControls';
+import { RenderField } from '../common/FormsControls/FormsControls';
 
 const PersonalPosts = (props) => {
-  // let newPostElement = React.createRef();
-
   let onAddPost = (values) => {
     props.addPost(values.newPostText);
   };
@@ -32,10 +30,9 @@ const maxLength50 = maxLengthCreator(50);
 const AddNewPostForm = (props) => {
   return <form onSubmit={props.handleSubmit} className="create-post" autoComplete="off">
     <Field 
-      // ref={newPostElement}
       type="text"
       name="newPostText"
-      component={renderField}
+      component={RenderField}
       className="create-post__area" 
       placeholder="What's new?"
       validate={[required, maxLength50]} />

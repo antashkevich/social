@@ -1,12 +1,11 @@
 import React from 'react';
+import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from '../utils/validators/validators';
-import { renderField } from './common/FormsControls/FormsControls';
+import { RenderField } from './common/FormsControls/FormsControls';
 
 const Login = (props) => {
-    const onSubmit = (formData) => {
-
-    };
+    const onSubmit = (formData) => {};
 
     return <div className="login-block container__decor">
         <h2 className="container__title">Login form</h2>
@@ -23,16 +22,20 @@ const LoginForm = (props) => {
             type="text"
             name="Login"
             className="form__input"
-            component={renderField}
+            component={RenderField}
             placeholder="Login"
             validate={[required, maxLength20]} />
         <Field
             type="password"
+            typeShow="text"
             name="Password"
+            autoComplete="off"
             className="form__input"
-            component={renderField}
+            component={RenderField}
             placeholder="Password"
-            validate={[required, maxLength10]} />
+            validate={[required, maxLength10]}
+            icon={faEyeSlash}
+            iconFlip={faEye} />
         <div className="form__footer">
             <button className="button-action">Login</button>
             <label className="form__label">
